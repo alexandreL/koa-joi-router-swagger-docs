@@ -1,5 +1,5 @@
 const assert = require('power-assert')
-const Router = require('koa-joi-router-ng')
+const Router = require('koa-joi-router')
 const Joi = Router.Joi
 
 const { SwaggerAPI } = require('../')
