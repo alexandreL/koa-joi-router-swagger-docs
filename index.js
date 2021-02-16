@@ -1,3 +1,3 @@
-'use strict';
+'use strict'
 
-exports.SwaggerAPI = require('./lib/api');
+exports.SwaggerAPI = require('./lib/api')

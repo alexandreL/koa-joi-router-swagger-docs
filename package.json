@@ -1,39 +1,31 @@
 {
-  "name": "koa-joi-router-docs",
+  "name": "koa-joi-router-swagger-docs",
   "version": "1.2.3",
   "description": "OpenAPI(aka Swagger) API docs generator for koa-joi-router.",
   "main": "index.js",
   "scripts": {
     "bump": "standard-version",
     "release": "git push --follow-tags origin master && npm publish --registry=https://registry.npmjs.org/",
-    "test": "nyc --all --reporter=cobertura --reporter=lcov --reporter=html --reporter=text mocha -r intelli-espower-loader"
-  },
-  "author": {
-    "name": "Edward Chu",
-    "email": "crazyzyt@gmail.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/o2team/koa-joi-router-docs"
+    "test": "nyc --all --reporter=html --reporter=text mocha -r intelli-espower-loader"
   },
   "license": "MIT",
   "dependencies": {
-    "joi-to-swagger": "^5.1.0",
-    "lodash": "^4.17.15",
-    "path-to-regexp": "^3.0.0"
+    "joi-to-swagger": "^5.2.0",
+    "lodash": "^4.17.20",
+    "path-to-regexp": "^6.2.0"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
+    "eslint": "^7.20.0",
     "intelli-espower-loader": "^1.0.1",
     "koa-joi-router": "^7.0.0",
-    "mocha": "^7.1.1",
-    "nyc": "^15.0.1",
+    "mocha": "^8.3.0",
+    "nyc": "^15.1.0",
     "power-assert": "^1.6.1",
-    "standard-version": "^7.1.0"
+    "standard-version": "^9.1.0"
   },
   "optionalDependencies": {
-    "class-validator": "^0.11.1",
-    "class-validator-jsonschema": "^1.3.1",
+    "class-validator": "^0.12.2",
+    "class-validator-jsonschema": "^2.1.1",
     "reflect-metadata": "^0.1.13"
   }
 }
