@@ -1,21 +1,5 @@
 # koa-joi-router-ng-docs
 
-[![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
-[![npm download][download-image]][download-url]
-
-[npm-image]: https://img.shields.io/npm/v/koa-joi-router-ng-docs.svg?style=flat-square
-
-[npm-url]: https://npmjs.org/package/koa-joi-router-ng-docs
-
-[travis-image]: https://img.shields.io/travis/yadickson/koa-joi-router-docs.svg?style=flat-square
-
-[travis-url]: https://travis-ci.org/yadickson/koa-joi-router-docs
-
-[download-image]: https://img.shields.io/npm/dm/koa-joi-router-ng-docs.svg?style=flat-square
-
-[download-url]: https://npmjs.org/package/koa-joi-router-ng-docs
-
 This project is based on [chuyik/koa-joi-router-docs](https://github.com/chuyik/koa-joi-router-docs).
 
 This fork use Joi@17 version

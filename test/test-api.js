@@ -1,11 +1,12 @@
 const assert = require('power-assert')
 const Router = require('koa-joi-router')
+const SwaggerParser = require('swagger-parser')
 const Joi = Router.Joi
 
 const { SwaggerAPI } = require('../')
 
 describe('API', function() {
-    it('should success with valid data', function() {
+    it('should success with valid data', async function() {
         const generator = new SwaggerAPI()
         const router = Router()
 
@@ -41,9 +42,10 @@ describe('API', function() {
             basePath: '/'
         })
         assert([ 'info', 'basePath', 'swagger', 'paths', 'tags' ].every(v => v in spec))
+        await SwaggerParser.validate(spec)
     })
 
-    it('should success with empty default response', function() {
+    it('should success with empty default response', async function() {
         const generator = new SwaggerAPI()
         const router = Router()
 
@@ -70,9 +72,10 @@ describe('API', function() {
             basePath: '/'
         }, { defaultResponses: null })
         assert(!('200' in spec.paths['/empty-default-response'].get.responses))
+        await SwaggerParser.validate(spec)
     })
 
-    it('should success with output placed outside of validate', function() {
+    it('should success with output placed outside of validate', async function() {
         const generator = new SwaggerAPI()
         const router = Router()
 
@@ -101,9 +104,10 @@ describe('API', function() {
         assert(
             [ '200', '201' ].every(v => v in spec.paths['/output-outside-validate'].get.responses)
         )
+        await SwaggerParser.validate(spec)
     })
 
-    it('should consider the router prefix', function() {
+    it('should consider the router prefix', async function() {
         const generator = new SwaggerAPI()
         const router = Router()
         router.prefix('/api')
@@ -128,9 +132,10 @@ describe('API', function() {
             basePath: '/'
         })
         assert([ '/api/signup' ].every(r => r in spec.paths))
+        await SwaggerParser.validate(spec)
     })
 
-    it('should consider the prefix option over JoiRouter', function() {
+    it('should consider the prefix option over JoiRouter', async function() {
         const generator = new SwaggerAPI()
         const router = Router()
         router.prefix('/api')
@@ -155,9 +160,10 @@ describe('API', function() {
             basePath: '/'
         })
         assert([ '/other-api/signup' ].every(r => r in spec.paths))
+        await SwaggerParser.validate(spec)
     })
 
-    it('should return $ref with references', function() {
+    it('should return $ref with references', async function() {
         const generator = new SwaggerAPI()
         const router = Router()
 
@@ -194,5 +200,7 @@ describe('API', function() {
         })
         assert(spec.paths['/signup'].get.parameters[0].schema.$ref === '#/definitions/Profile')
         assert(spec.paths['/signup'].get.responses[200].schema.$ref === '#/definitions/Profile')
+        console.log(JSON.stringify(spec.paths, 0,2))
+        await SwaggerParser.validate(spec)
     })
 })

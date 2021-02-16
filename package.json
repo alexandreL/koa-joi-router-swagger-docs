@@ -10,13 +10,15 @@
   },
   "license": "MIT",
   "dependencies": {
-    "joi-to-swagger": "^5.2.0",
+    "joi-to-swagger": "github:alexandreL/joi-to-swagger",
     "lodash": "^4.17.20",
-    "path-to-regexp": "^6.2.0"
+    "path-to-regexp": "^6.2.0",
+    "swagger-parser": "^10.0.2"
   },
   "devDependencies": {
     "eslint": "^7.20.0",
     "intelli-espower-loader": "^1.0.1",
+    "joi": "^17.3.0",
     "koa-joi-router": "^7.0.0",
     "mocha": "^8.3.0",
     "nyc": "^15.1.0",
